@@ -1,0 +1,74 @@
+.social {
+	display: grid;
+	row-gap: 1em;
+
+	@include mq(768px) {
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		column-gap: 1em;
+	}
+
+	@include mq(1024px) {
+		column-gap: 2em;
+	}
+
+	&_container {
+		display: flex;
+		justify-content: center;
+		border: solid 1px rgb(202, 202, 202);
+		border-radius: 5px;
+		background-color: rgba(235, 235, 235, 0.267);
+	}
+
+	&_icon {
+		display: flex;
+		background-color: rgb(83, 82, 136);
+		border-radius: 100%;
+		width: 70px;
+		height: 70px;
+		margin: 1em 0;
+
+		@include mq(768px) {
+			width: 60px;
+			height: 60px;
+		}
+
+		@include mq(1024px) {
+			width: 80px;
+			height: 80px;
+		}
+
+		& path {
+			fill: white;
+		}
+
+		& svg {
+			margin: auto;
+			width: 50%;
+		}
+	}
+
+	&_text {
+		margin: auto 0 auto 1em;
+
+		& h4 {
+			margin: 0;
+			color: rgb(76, 75, 141);
+			font-size: 1.25rem;
+		}
+
+		& p {
+			margin: 0;
+			font-size: 2.75rem;
+			font-family: 'Dosis';
+			letter-spacing: 2px;
+
+			@include mq(1024px) {
+				font-size: 3rem;
+			}
+		}
+
+		@include mq(1024px) {
+			margin-left: 2em;
+		}
+	}
+}

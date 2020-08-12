@@ -1,0 +1,38 @@
+.traffic {
+	&_header {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&_nav {
+		margin: auto 0;
+
+		&--link {
+			display: inline-block;
+			padding: 0.1em 0.25em;
+			color: gray;
+
+			@media (min-width: 768px) {
+				padding: 0.5em 1em;
+				color: rgb(153, 153, 153);
+				font-weight: bold;
+			}
+		}
+
+		& li:last-of-type {
+			padding-right: 0;
+		}
+	}
+}
+.active {
+	border-bottom: solid 2px green;
+	color: black;
+	font-weight: bold;
+
+	@media (min-width: 768px) {
+		background-color: rgba(0, 172, 0, 0.541);
+		border-radius: 30px;
+		color: white;
+		border: none;
+	}
+}

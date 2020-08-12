@@ -1,28 +1,16 @@
 .grid-container {
 	display: grid;
-	grid-template-columns: 100vw;
+	grid-template-columns: minmax(0, 100vw);
 	grid-template-rows: auto;
 	grid-template-areas: 'header' 'nav' 'main';
 }
 
 header {
 	grid-area: header;
-	clear: both;
-}
-
-.app-name {
-	float: left;
-}
-
-.account {
-	float: right;
-	display: flex;
 }
 
 .nav {
 	grid-area: nav;
-	display: flex;
-	justify-content: center;
 }
 
 main {
@@ -30,43 +18,23 @@ main {
 	display: grid;
 }
 
-.title {
-	display: grid;
-	grid-template-columns: 1fr 2fr;
-}
-
-.search-bar {
-	display: flex;
-	justify-content: flex-end;
-}
-
-.socials-stats {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(300px, max-content));
-}
-
-.social-container {
-	display: flex;
+.section {
+	@include section-padding;
 }
 
 @media (min-width: 768px) {
 	.grid-container {
-		grid-template-columns: 70px minmax(0, 1fr);
+		grid-template-columns: minmax(70px, 70px) minmax(0, 1fr);
 		grid-template-areas: 'header header' 'nav main';
 	}
 
 	main {
-		grid-template-columns: repeat(2, 50%);
-	}
-
-	.nav {
-		flex-direction: column;
-		justify-content: start;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
 	}
 
 	.traffic,
 	.socials,
-	.title,
+	.top-bar,
 	.alert {
 		grid-column: 1 / span 2;
 	}
@@ -83,17 +51,22 @@ main {
 		grid-column: 2 / span 1;
 	}
 
-	.title {
-		grid-template-columns: max-content;
+	.border {
+		border-right: solid 1px gray;
+		border-top: solid 1px gray;
 	}
 
-	.search-bar {
-		grid-column: 2 / span 2;
+	.full-chart {
+		width: 90%;
+	}
+
+	.half-chart {
+		width: 45%;
 	}
 }
 
 @media (min-width: 1024px) {
 	.grid-container {
-		grid-template-columns: 100px minmax(0, 1fr);
+		grid-template-columns: minmax(100px, 100px) minmax(0, 1fr);
 	}
 }

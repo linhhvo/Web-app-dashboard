@@ -1,0 +1,29 @@
+.nav {
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	background-color: rgb(83, 82, 136);
+	padding: 1em 0 0.75em;
+
+	@media (min-width: 768px) {
+		flex-direction: column;
+		justify-content: start;
+	}
+
+	& img {
+		width: 65px;
+		height: 35px;
+		padding: 0 1em;
+
+		@media (min-width: 768px) {
+			width: 35px;
+			height: 65px;
+			padding: 1em 0;
+		}
+
+		@media (min-width: 1024px) {
+			width: 40px;
+			height: 70px;
+		}
+	}
+}

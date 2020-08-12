@@ -1,0 +1,12 @@
+@mixin mq($break) {
+	@media (min-width: $break) {
+		@content;
+	}
+}
+
+@mixin section-padding {
+	padding: 1.25em;
+	@include mq(1024px) {
+		padding: 2em 3em;
+	}
+}

@@ -3,6 +3,9 @@
 	font-family: 'Nunito', sans-serif;
 }
 
+body {
+	color: rgb(77, 77, 77);
+}
 h3 {
 	text-transform: uppercase;
 }
@@ -11,22 +14,6 @@ li {
 	list-style-type: none;
 }
 
-section {
-	padding: 1.25em 1em;
-}
-
-@media (min-width: 768px) {
-	section {
-		padding: 1.25em;
-	}
-}
-
-@media (min-width: 1024px) {
-	h1 {
-		font-size: 3rem;
-	}
-
-	section {
-		padding: 1em 3em;
-	}
+h1 {
+	font-size: 2rem;
 }
