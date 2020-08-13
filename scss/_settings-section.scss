@@ -1,0 +1,53 @@
+.settings {
+	&_container {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) minmax(100px, 100px);
+		margin: 1em 0;
+
+		@include mq(1024px) {
+			margin: 2em 0;
+		}
+	}
+
+	@include mq(1024px) {
+		&_btn {
+			display: flex;
+		}
+	}
+
+	& select {
+		margin: 1em 0 2.75em 0;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		@include mq(768px) {
+			margin-top: 1.45em;
+		}
+		@include mq(1024px) {
+			margin-bottom: 1.7em;
+			margin-top: 3.75em;
+		}
+	}
+
+	&_timezone {
+		position: relative;
+		&::after {
+			content: '>';
+			position: absolute;
+			color: rgb(108, 107, 197);
+			font-size: 3rem;
+			font-family: 'Catamaran';
+			font-weight: 200;
+			transform: rotate(90deg);
+			pointer-events: none;
+			top: 15px;
+			right: 20px;
+			@include mq(768px) {
+				top: 20px;
+			}
+			@include mq(1024px) {
+				top: 60px;
+			}
+		}
+	}
+}

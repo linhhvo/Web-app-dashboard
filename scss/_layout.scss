@@ -35,25 +35,25 @@ main {
 	.traffic,
 	.socials,
 	.top-bar,
-	.alert {
+	.alert,
+	.members,
+	.activities {
 		grid-column: 1 / span 2;
 	}
 
 	.daily,
-	.members,
 	.message {
 		grid-column: 1 / span 1;
 	}
 
 	.users,
-	.activities,
 	.settings {
 		grid-column: 2 / span 1;
 	}
 
 	.border {
-		border-right: solid 1px gray;
-		border-top: solid 1px gray;
+		border-right: solid 1px rgb(202, 202, 202);
+		border-top: solid 1px rgb(202, 202, 202);
 	}
 
 	.full-chart {
@@ -68,5 +68,13 @@ main {
 @media (min-width: 1024px) {
 	.grid-container {
 		grid-template-columns: minmax(100px, 100px) minmax(0, 1fr);
+	}
+
+	.members {
+		grid-column: 1 / span 1;
+	}
+
+	.activities {
+		grid-column: 2 / span 1;
 	}
 }

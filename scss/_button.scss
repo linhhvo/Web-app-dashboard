@@ -1,0 +1,90 @@
+.button {
+	&_primary {
+		border-radius: 5px;
+		padding: 1em;
+		text-transform: uppercase;
+		color: white;
+		background-color: rgb(83, 82, 136);
+		border: none;
+		width: 100%;
+		font-weight: bold;
+		margin-bottom: 1em;
+
+		&:hover {
+			background-color: rgb(122, 121, 197);
+		}
+
+		@include mq(1024px) {
+			width: 50%;
+			margin-right: 0.5em;
+			margin-bottom: 0;
+		}
+	}
+
+	&_message {
+		width: 100%;
+	}
+
+	&_secondary {
+		border-radius: 5px;
+		padding: 1em;
+		text-transform: uppercase;
+		color: white;
+		background-color: grey;
+		border: none;
+		width: 100%;
+		font-weight: bold;
+
+		@include mq(1024px) {
+			width: 50%;
+			margin-left: 0.5em;
+		}
+	}
+}
+
+.toggle {
+	width: 100px;
+	height: 40px;
+
+	&_button {
+		background-color: grey;
+		width: 90px;
+		height: 40px;
+		border-radius: 100px;
+		display: flex;
+		justify-content: space-between;
+		border: solid 2px rgba(202, 202, 202, 0.658);
+		transition: all 0.3s ease-in-out;
+	}
+
+	&_circle {
+		width: 30px;
+		height: 30px;
+		background-color: white;
+		border-radius: 100px;
+		margin: auto 2px;
+		border: solid 2px rgb(202, 202, 202, 0.658);
+	}
+
+	&_text {
+		color: white;
+		margin: auto 10px;
+		text-transform: uppercase;
+		transition: all 0.3s ease-in-out;
+	}
+}
+.on {
+	display: none;
+}
+.active-btn {
+	background-color: rgb(122, 121, 197);
+	border: solid 2px rgb(202, 202, 202, 0.658);
+
+	& > .off {
+		display: none;
+	}
+
+	& > .on {
+		display: initial;
+	}
+}

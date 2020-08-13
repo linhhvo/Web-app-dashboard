@@ -1,0 +1,40 @@
+.members {
+	&_container {
+		padding: 1em 0;
+		height: 85px;
+		border-bottom: solid 1px rgb(202, 202, 202);
+		clear: both;
+		overflow: auto;
+		&:last-child {
+			border-bottom: none;
+		}
+	}
+
+	&_item {
+		display: flex;
+		float: left;
+	}
+	&_avatar {
+		width: 40px;
+		height: 40px;
+		border-radius: 100%;
+		margin: auto 1em auto 0;
+	}
+
+	&_info {
+		margin: auto 0;
+		& p {
+			margin: 0;
+		}
+		& a {
+			font-size: 0.9rem;
+			text-decoration: none;
+			color: rgb(108, 107, 197);
+		}
+	}
+
+	&_date {
+		float: right;
+		margin: 0.7em 0;
+	}
+}

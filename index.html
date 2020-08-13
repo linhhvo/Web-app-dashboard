@@ -3,14 +3,14 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link href="https://fonts.googleapis.com/css?family=Nunito:400,500,700|Dosis:300" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css?family=Nunito:400,500,700|Dosis:300|Catamaran:200,300" rel="stylesheet" />
 		<link rel="stylesheet" href="css/styles.css" />
 		<title>Dashboard</title>
 	</head>
 
 	<body class="grid-container">
 		<header>
-			<h1 class="app-name">Your<span>App&trade;</span></h1>
+			<h1 class="app-name">TrackYour<span>Usage</span></h1>
 			<div class="account">
 				<svg class="account_bell-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
 					<path
@@ -19,6 +19,7 @@
 						fill="#fff"
 					/>
 				</svg>
+				<div class="new-noti"></div>
 				<div id="notifications"></div>
 				<div class="account_profile">
 					<img class="account_profile--pic" src="images/profile-img.png" alt="User profile picture" />
@@ -28,7 +29,7 @@
 		</header>
 
 		<nav class="nav">
-			<a class="nav_dashboard" href="#dashboard">
+			<a class="nav_dashboard selected" href="#dashboard">
 				<img src="icons/icon-dashboard.svg" alt="Dashboard icon" />
 			</a>
 			<a class="nav_members" href="#members">
@@ -48,6 +49,11 @@
 				<h2 class="title">Dashboard</h2>
 				<div class="search-bar">
 					<input type="search" placeholder="Search" />
+					<svg fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30" width="30px" height="30px">
+						<path
+							d="M 13 3 C 7.4889971 3 3 7.4889971 3 13 C 3 18.511003 7.4889971 23 13 23 C 15.396508 23 17.597385 22.148986 19.322266 20.736328 L 25.292969 26.707031 A 1.0001 1.0001 0 1 0 26.707031 25.292969 L 20.736328 19.322266 C 22.148986 17.597385 23 15.396508 23 13 C 23 7.4889971 18.511003 3 13 3 z M 13 5 C 17.430123 5 21 8.5698774 21 13 C 21 17.430123 17.430123 21 13 21 C 8.5698774 21 5 17.430123 5 13 C 5 8.5698774 8.5698774 5 13 5 z"
+						/>
+					</svg>
 				</div>
 			</div>
 
@@ -62,9 +68,9 @@
 				<div class="traffic_header">
 					<h3>Traffic</h3>
 					<ul class="traffic_nav">
-						<li class="traffic_nav--link active">Hourly</li>
+						<li class="traffic_nav--link">Hourly</li>
 						<li class="traffic_nav--link">Daily</li>
-						<li class="traffic_nav--link">Weekly</li>
+						<li class="traffic_nav--link active">Weekly</li>
 						<li class="traffic_nav--link">Monthly</li>
 					</ul>
 				</div>
@@ -152,43 +158,51 @@
 				<h3>New members</h3>
 
 				<!--===Member 1===-->
-				<div class="members-container">
-					<img class="members-avatar" src="images/member-1.jpg" alt="Member profile picture" />
-					<div class="members-info">
-						<p>Victoria Chambers</p>
-						<a href="#">victoria.chambers80@example.com</a>
+				<div class="members_container">
+					<div class="members_item">
+						<img class="members_avatar" src="images/member-1.jpg" alt="Member profile picture" />
+						<div class="members_info">
+							<p>Victoria Chambers</p>
+							<a href="#">victoria.chambers80@example.com</a>
+						</div>
 					</div>
-					<p>10/15/15</p>
+					<p class="members_date">10/15/15</p>
 				</div>
 
 				<!--===Member 2===-->
-				<div class="members-container">
-					<img class="members-avatar" src="images/member-2.jpg" alt="Member profile picture" />
-					<div class="members-info">
-						<p>Dale Byrd</p>
-						<a href="#">dale.byrd52@example.com</a>
+				<div class="members_container">
+					<div class="members_item">
+						<img class="members_avatar" src="images/member-2.jpg" alt="Member profile picture" />
+						<div class="members_info">
+							<p>Dale Byrd</p>
+							<a href="#">dale.byrd52@example.com</a>
+						</div>
 					</div>
-					<p>10/15/15</p>
+					<p class="members_date">10/15/15</p>
 				</div>
 
 				<!--===Member 3===-->
-				<div class="members-container">
-					<img class="members-avatar" src="images/member-3.jpg" alt="Member profile picture" />
-					<div class="members-info">
-						<p>Dawn Wood</p>
-						<a href="#">dawn.wood16@example.com</a>
+				<div class="members_container">
+					<div class="members_item">
+						<img class="members_avatar" src="images/member-3.jpg" alt="Member profile picture" />
+						<div class="members_info">
+							<p>Dawn Wood</p>
+							<a href="#">dawn.wood16@example.com</a>
+						</div>
 					</div>
-					<p>10/15/15</p>
+					<p class="members_date">10/15/15</p>
 				</div>
 
 				<!--===Member 4===-->
-				<div class="members-container">
-					<img class="members-avatar" src="images/member-4.jpg" alt="Member profile picture" />
-					<div class="members-info">
-						<p>Dan Oliver</p>
-						<a href="#">dan.oliver82@example.com</a>
+				<div class="members_container">
+					<div class="members_item">
+						<img class="members_avatar" src="images/member-4.jpg" alt="Member profile picture" />
+						<div class="members_info">
+							<p>Dan Oliver</p>
+							<a href="#">dan.oliver82@example.com</a>
+						</div>
 					</div>
-					<p>10/15/15</p>
+					<p class="members_date">10/15/15</p>
 				</div>
 			</section>
 
@@ -197,53 +211,61 @@
 				<h3>Recent activity</h3>
 
 				<!--===Activity 1===-->
-				<div class="activities-container">
-					<img class="members-avatar" src="images/member-1.jpg" alt="Member profile picture" />
-					<div class="activities-info">
-						<p>Victoria Chambers commented on YourApp's SEO Tips</p>
-						<p>4 hours ago</p>
+				<div class="activities_container">
+					<div class="activities_item">
+						<img class="members_avatar" src="images/member-1.jpg" alt="Member profile picture" />
+						<div class="activities_info">
+							<p>Victoria Chambers commented on YourApp's SEO Tips</p>
+							<p>4 hours ago</p>
+						</div>
 					</div>
-					<p>></p>
+					<p class="activities_see-more">></p>
 				</div>
 
 				<!--===Activity 2===-->
-				<div class="activities-container">
-					<img class="members-avatar" src="images/member-2.jpg" alt="Member profile picture" />
-					<div class="activities-info">
-						<p>Dale Byrd commented on Facebook's Changes for 2016</p>
-						<p>5 hours ago</p>
+				<div class="activities_container">
+					<div class="activities_item">
+						<img class="members_avatar" src="images/member-2.jpg" alt="Member profile picture" />
+						<div class="activities_info">
+							<p>Dale Byrd commented on Facebook's Changes for 2016</p>
+							<p>5 hours ago</p>
+						</div>
 					</div>
-					<p>></p>
+					<p class="activities_see-more">></p>
 				</div>
 
 				<!--===Activity 3===-->
-				<div class="activities-container">
-					<img class="members-avatar" src="images/member-3.jpg" alt="Member profile picture" />
-					<div class="activities-info">
-						<p>Dawn Wood commented on Facebook's Changes for 2016</p>
-						<p>5 hours ago</p>
+				<div class="activities_container">
+					<div class="activities_item">
+						<img class="members_avatar" src="images/member-3.jpg" alt="Member profile picture" />
+						<div class="activities_info">
+							<p>Dawn Wood commented on Facebook's Changes for 2016</p>
+							<p>5 hours ago</p>
+						</div>
 					</div>
-					<p>></p>
+					<p class="activities_see-more">></p>
 				</div>
 
 				<!--===Activity 4===-->
-				<div class="activities-container">
-					<img class="members-avatar" src="images/member-4.jpg" alt="Member profile picture" />
-					<div class="activities-info">
-						<p>Dan Oliver posted YourApp's SEO Tips</p>
-						<p>1 day ago</p>
+				<div class="activities_container">
+					<div class="activities_item">
+						<img class="members_avatar" src="images/member-4.jpg" alt="Member profile picture" />
+						<div class="activities_info">
+							<p>Dan Oliver posted YourApp's SEO Tips</p>
+							<p>1 day ago</p>
+						</div>
 					</div>
-					<p>></p>
+					<p class="activities_see-more">></p>
 				</div>
 			</section>
 
 			<!------Send Message------>
 			<section class="message border section" id="settings">
 				<h3>Message user</h3>
-				<form class="message-container">
-					<input type="text" plaseholder="Search for User" id="userField" class="form-field" />
-					<textarea id="messageField" placeholder="Message for User" class="form-area"></textarea>
-					<button class="button-primary" id="send">Send</button>
+				<form class="message_container">
+					<input type="text" placeholder="Search for User" id="userField" class="form_field" />
+					<textarea rows="10" id="messageField" placeholder="Message for User" class="form_field"></textarea>
+					<button class="button_primary button_message" id="send">Send</button>
 				</form>
 			</section>
 
@@ -252,35 +274,41 @@
 				<h3>Settings</h3>
 
 				<!--===Email Notifications===-->
-				<div class="email-noti">
+				<div class="settings_container">
 					<p>Send Email Notifications</p>
-					<div class="toggle-container">
-						<div class="toggle-button">
-							<div class="toggle-circle"></div>
+					<div class="toggle">
+						<div class="toggle_button active-btn">
+							<div class="toggle_text on">On</div>
+							<div class="toggle_circle"></div>
+							<div class="toggle_text off">Off</div>
 						</div>
 					</div>
 				</div>
 
 				<!--===Profile privacy===-->
-				<div class="privary">
+				<div class="settings_container">
 					<p>Set Profile to Public</p>
-					<div class="toggle-container">
-						<div class="toggle-button">
-							<div class="toggle-circle"></div>
+					<div class="toggle">
+						<div class="toggle_button active-btn">
+							<div class="toggle_text on">On</div>
+							<div class="toggle_circle"></div>
+							<div class="toggle_text off">Off</div>
 						</div>
 					</div>
 				</div>
 
 				<!--===Timezone selection===-->
-				<select id="timezone" class="form-field">
-					<option disabled selected>Select a Timezone</option>
-					<option value="Eastern">Eastern</option>
-					<option value="Pacific">Pacific</option>
-				</select>
+				<div class="settings_timezone">
+					<select id="timezone" class="form_field">
+						<option disabled selected>Select a Timezone</option>
+						<option value="Eastern">Eastern</option>
+						<option value="Pacific">Pacific</option>
+					</select>
+				</div>
 
-				<div class="settings-btn">
-					<button class="button-primary" id="save">Save</button>
-					<button class="button-disabled" id="cancel">Cancel</button>
+				<div class="settings_btn">
+					<button class="button_primary" id="save">Save</button>
+					<button class="button_secondary" id="cancel">Cancel</button>
 				</div>
 			</section>
 		</main>
@@ -290,6 +318,6 @@
 			integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg=="
 			crossorigin="anonymous"
 		></script>
-		<!-- <script src="js/app.js"></script> -->
+		<script src="js/app.js"></script>
 	</body>
 </html>

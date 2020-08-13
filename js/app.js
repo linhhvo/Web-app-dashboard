@@ -1,31 +1,21 @@
-// Create alert banner
+const settings = document.querySelector('.settings');
+const nav = document.querySelector('nav');
 
-const alertBanner = document.getElementById('alert');
+settings.addEventListener('click', (e) => {
+	if (e.target.classList[0] == 'toggle_circle') {
+		let toggleBtn = e.target.parentNode;
+		if (toggleBtn.classList[1] == 'active-btn') {
+			toggleBtn.classList.remove('active-btn');
+		} else {
+			toggleBtn.classList.add('active-btn');
+		}
+	}
+});
 
-alertBanner.innerHTML = `
-  ;
-
-alertBanner.addEventListener('click')
-
-
-
-
-let mainTrafficCanvas = document.getElementById('mainTrafficChart');
-
-let trafficData = {
-	labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
-	datasets: [
-		{
-			data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
-			backgroundColor: 'rgba(116,119,191,.3',
-			broderWidth: 1,
-		},
-	],
-};
-
-let trafficOptions = {
-	aspectRatio: 2.5,
-	animation: {
-		duration: 0,
-	},
-};
+nav.addEventListener('click', (e) => {
+	if (e.target.tagName == 'IMG') {
+		if (e.target.parentNode.classList[1] !== 'selected') {
+			e.target.parentNode.classList.add('selected');
+		}
+	}
+});

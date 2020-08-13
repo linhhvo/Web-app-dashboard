@@ -1,0 +1,16 @@
+.form_field {
+	width: 100%;
+	padding: 1em;
+	margin-bottom: 1.5em;
+	border-radius: 5px;
+	border: solid 1px rgb(202, 202, 202);
+	background-color: rgba(202, 202, 202, 0.137);
+	&::placeholder {
+		color: rgb(161, 161, 161);
+	}
+}
+
+:focus {
+	border-color: rgb(108, 107, 197);
+	outline: none;
+}

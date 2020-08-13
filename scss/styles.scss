@@ -2,12 +2,16 @@
 @import 'mixins';
 @import 'base';
 @import 'layout';
+@import 'button';
 @import 'header';
 @import 'navigation';
 @import 'topBar';
 @import 'main-traffic-section';
 @import 'socials-section';
 @import 'members-section';
+@import 'activities-section';
+@import 'form';
+@import 'settings-section';
 
 .full-chart,
 .half-chart {

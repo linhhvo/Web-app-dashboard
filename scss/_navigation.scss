@@ -14,6 +14,7 @@
 		width: 65px;
 		height: 35px;
 		padding: 0 1em;
+		opacity: 0.5;
 
 		@media (min-width: 768px) {
 			width: 35px;
@@ -25,5 +26,25 @@
 			width: 40px;
 			height: 70px;
 		}
+	}
+}
+
+.selected {
+	text-decoration: none;
+	position: relative;
+
+	@include mq(768px) {
+		&::before {
+			content: 'b';
+			padding: 25px 0;
+			background-color: rgba(93, 214, 93, 0.856);
+			color: transparent;
+			position: absolute;
+			left: -4px;
+			border-radius: 40px;
+		}
+	}
+	& img {
+		opacity: 1;
 	}
 }
