@@ -11,6 +11,7 @@
 	<body class="grid-container">
 		<header>
 			<h1 class="app-name">TrackYour<span>Usage</span></h1>
+
 			<div class="account">
 				<svg class="account_bell-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
 					<path
@@ -19,8 +20,23 @@
 						fill="#fff"
 					/>
 				</svg>
+
 				<div class="new-noti"></div>
-				<div id="notifications"></div>
+				<div class="notifications" id="notifications">
+					<div class="notifications_container">
+						<p>You have a new connection request.</p>
+						<button class="alert_btn">x</button>
+					</div>
+					<div class="notifications_container">
+						<p>Victoria sent you a message.</p>
+						<button class="alert_btn">x</button>
+					</div>
+					<div class="notifications_container">
+						<p>Dan replied you on an article.</p>
+						<button class="alert_btn">x</button>
+					</div>
+				</div>
+
 				<div class="account_profile">
 					<img class="account_profile--pic" src="images/profile-img.png" alt="User profile picture" />
 					<h2 class="account_profile--name">Linh Vo</h2>
@@ -57,14 +73,14 @@
 				</div>
 			</div>
 
-			<!-----Pop up alert----->
-			<div class="alert" id="alert">
+			<!-----Alert banner----->
+			<div class="alert collapsible" id="alert">
 				<p><strong>Alert:</strong> You have <strong>6</strong> overdue tasks to complete</p>
-				<button>x</button>
+				<button class="alert_btn">x</button>
 			</div>
 
 			<!-----Main traffic line chart----->
-			<section class="traffic section" id="dashboard">
+			<section class="traffic" id="dashboard">
 				<div class="traffic_header">
 					<h3>Traffic</h3>
 					<ul class="traffic_nav">
@@ -75,31 +91,28 @@
 					</ul>
 				</div>
 				<div class="full-chart">
-					<!-- <canvas id="mainTrafficChart"></canvas> -->
-					<img src="Chart1.PNG" />
+					<canvas id="mainTrafficChart"></canvas>
 				</div>
 			</section>
 
 			<!-----Daily traffic bar chart----->
-			<section class="daily border section">
+			<section class="daily border">
 				<h3>Daily traffic</h3>
 				<div class="half-chart">
-					<!-- <canvas id="dailyChart"></canvas> -->
-					<img src="Chart2.PNG" />
+					<canvas id="dailyChart"></canvas>
 				</div>
 			</section>
 
 			<!-----Users doughnut chart----->
-			<section class="users border section">
+			<section class="users border-top">
 				<h3>Mobile Users</h3>
 				<div class="half-chart">
-					<!-- <canvas id="usersChart"></canvas> -->
-					<img src="Chart3.PNG" />
+					<canvas id="usersChart"></canvas>
 				</div>
 			</section>
 
 			<!-----Social Stats----->
-			<section class="socials section border" id="visits">
+			<section class="socials border-top" id="visits">
 				<h3>Social stats</h3>
 
 				<!--===Twitter===-->
@@ -154,7 +167,7 @@
 			</section>
 
 			<!-----New Members----->
-			<section class="members border section" id="members">
+			<section class="members border" id="members">
 				<h3>New members</h3>
 
 				<!--===Member 1===-->
@@ -163,7 +176,7 @@
 						<img class="members_avatar" src="images/member-1.jpg" alt="Member profile picture" />
 						<div class="members_info">
 							<p>Victoria Chambers</p>
-							<a href="#">victoria.chambers80@example.com</a>
+							<a class="members_info--line2" href="#">victoria.chambers80@example.com</a>
 						</div>
 					</div>
 					<p class="members_date">10/15/15</p>
@@ -175,7 +188,7 @@
 						<img class="members_avatar" src="images/member-2.jpg" alt="Member profile picture" />
 						<div class="members_info">
 							<p>Dale Byrd</p>
-							<a href="#">dale.byrd52@example.com</a>
+							<a class="members_info--line2" href="#">dale.byrd52@example.com</a>
 						</div>
 					</div>
 					<p class="members_date">10/15/15</p>
@@ -187,7 +200,7 @@
 						<img class="members_avatar" src="images/member-3.jpg" alt="Member profile picture" />
 						<div class="members_info">
 							<p>Dawn Wood</p>
-							<a href="#">dawn.wood16@example.com</a>
+							<a class="members_info--line2" href="#">dawn.wood16@example.com</a>
 						</div>
 					</div>
 					<p class="members_date">10/15/15</p>
@@ -199,7 +212,7 @@
 						<img class="members_avatar" src="images/member-4.jpg" alt="Member profile picture" />
 						<div class="members_info">
 							<p>Dan Oliver</p>
-							<a href="#">dan.oliver82@example.com</a>
+							<a class="members_info--line2" href="#">dan.oliver82@example.com</a>
 						</div>
 					</div>
 					<p class="members_date">10/15/15</p>
@@ -207,52 +220,52 @@
 			</section>
 
 			<!-----Recent Activities----->
-			<section class="activities border section">
+			<section class="activities border-top">
 				<h3>Recent activity</h3>
 
 				<!--===Activity 1===-->
-				<div class="activities_container">
-					<div class="activities_item">
+				<div class="members_container">
+					<div class="members_item">
 						<img class="members_avatar" src="images/member-1.jpg" alt="Member profile picture" />
-						<div class="activities_info">
+						<div class="members_info">
 							<p>Victoria Chambers commented on YourApp's SEO Tips</p>
-							<p>4 hours ago</p>
+							<p class="members_info--line2">4 hours ago</p>
 						</div>
 					</div>
 					<p class="activities_see-more">></p>
 				</div>
 
 				<!--===Activity 2===-->
-				<div class="activities_container">
-					<div class="activities_item">
+				<div class="members_container">
+					<div class="members_item">
 						<img class="members_avatar" src="images/member-2.jpg" alt="Member profile picture" />
-						<div class="activities_info">
+						<div class="members_info">
 							<p>Dale Byrd commented on Facebook's Changes for 2016</p>
-							<p>5 hours ago</p>
+							<p class="members_info--line2">5 hours ago</p>
 						</div>
 					</div>
 					<p class="activities_see-more">></p>
 				</div>
 
 				<!--===Activity 3===-->
-				<div class="activities_container">
-					<div class="activities_item">
+				<div class="members_container">
+					<div class="members_item">
 						<img class="members_avatar" src="images/member-3.jpg" alt="Member profile picture" />
-						<div class="activities_info">
+						<div class="members_info">
 							<p>Dawn Wood commented on Facebook's Changes for 2016</p>
-							<p>5 hours ago</p>
+							<p class="members_info--line2">5 hours ago</p>
 						</div>
 					</div>
 					<p class="activities_see-more">></p>
 				</div>
 
 				<!--===Activity 4===-->
-				<div class="activities_container">
-					<div class="activities_item">
+				<div class="members_container">
+					<div class="members_item">
 						<img class="members_avatar" src="images/member-4.jpg" alt="Member profile picture" />
-						<div class="activities_info">
+						<div class="members_info">
 							<p>Dan Oliver posted YourApp's SEO Tips</p>
-							<p>1 day ago</p>
+							<p class="members_info--line2">1 day ago</p>
 						</div>
 					</div>
 					<p class="activities_see-more">></p>
@@ -260,55 +273,60 @@
 			</section>
 
 			<!------Send Message------>
-			<section class="message border section" id="settings">
+			<section class="settings settings-1 border" id="settings">
 				<h3>Message user</h3>
-				<form class="message_container">
-					<input type="text" placeholder="Search for User" id="userField" class="form_field" />
+				<form autocomplete="off" class="message_container">
+					<input type="text" placeholder="Search for User" id="userField" class="form_field user-search" />
+					<div class="userList"></div>
 					<textarea rows="10" id="messageField" placeholder="Message for User" class="form_field"></textarea>
-					<button class="button_primary button_message" id="send">Send</button>
+					<button class="button_primary message" id="send">Send</button>
 				</form>
 			</section>
 
 			<!-----Settings----->
-			<section class="settings border section">
+			<section class="settings settings-2 border-top">
 				<h3>Settings</h3>
 
-				<!--===Email Notifications===-->
-				<div class="settings_container">
-					<p>Send Email Notifications</p>
-					<div class="toggle">
-						<div class="toggle_button active-btn">
-							<div class="toggle_text on">On</div>
-							<div class="toggle_circle"></div>
-							<div class="toggle_text off">Off</div>
+				<div class="settings_1">
+					<!--===Email Notifications===-->
+					<div class="settings_container">
+						<p>Send Email Notifications</p>
+						<div class="toggle">
+							<div class="toggle_button active-btn">
+								<div class="toggle_text on">On</div>
+								<div class="toggle_circle"></div>
+								<div class="toggle_text off">Off</div>
+							</div>
 						</div>
 					</div>
-				</div>
 
-				<!--===Profile privacy===-->
-				<div class="settings_container">
-					<p>Set Profile to Public</p>
-					<div class="toggle">
-						<div class="toggle_button active-btn">
-							<div class="toggle_text on">On</div>
-							<div class="toggle_circle"></div>
-							<div class="toggle_text off">Off</div>
+					<!--===Profile privacy===-->
+					<div class="settings_container">
+						<p>Set Profile to Public</p>
+						<div class="toggle">
+							<div class="toggle_button active-btn">
+								<div class="toggle_text on">On</div>
+								<div class="toggle_text off">Off</div>
+								<div class="toggle_circle"></div>
+							</div>
 						</div>
 					</div>
 				</div>
 
 				<!--===Timezone selection===-->
-				<div class="settings_timezone">
-					<select id="timezone" class="form_field">
-						<option disabled selected>Select a Timezone</option>
-						<option value="Eastern">Eastern</option>
-						<option value="Pacific">Pacific</option>
-					</select>
-				</div>
+				<div class="settings_2">
+					<div class="settings_timezone">
+						<select id="timezone" class="form_field">
+							<option disabled selected>Select a Timezone</option>
+							<option value="Eastern">Eastern</option>
+							<option value="Pacific">Pacific</option>
+						</select>
+					</div>
 
-				<div class="settings_btn">
-					<button class="button_primary" id="save">Save</button>
-					<button class="button_secondary" id="cancel">Cancel</button>
+					<div class="settings_btn">
+						<button class="button_primary" id="save">Save</button>
+						<button class="button_secondary" id="cancel">Cancel</button>
+					</div>
 				</div>
 			</section>
 		</main>

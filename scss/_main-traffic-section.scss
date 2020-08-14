@@ -6,13 +6,16 @@
 
 	&_nav {
 		margin: auto 0;
+		padding: 0;
 
 		&--link {
 			display: inline-block;
-			padding: 0.1em 0.25em;
 			color: gray;
 
-			@media (min-width: 768px) {
+			@include mq(400px) {
+				padding: 0.1em 0.25em;
+			}
+			@include mq(768px) {
 				padding: 0.5em 1em;
 				color: rgb(153, 153, 153);
 				font-weight: bold;
@@ -29,7 +32,7 @@
 	color: black;
 	font-weight: bold;
 
-	@media (min-width: 768px) {
+	@include mq(768px) {
 		background-color: rgba(0, 172, 0, 0.541);
 		border-radius: 30px;
 		color: white;

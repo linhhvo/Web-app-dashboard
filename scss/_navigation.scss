@@ -4,10 +4,14 @@
 	text-align: center;
 	background-color: rgb(83, 82, 136);
 	padding: 1em 0 0.75em;
+	// z-index: 10;
 
 	@media (min-width: 768px) {
 		flex-direction: column;
 		justify-content: start;
+		position: fixed;
+		height: 100vh;
+		margin-top: 70px;
 	}
 
 	& img {
@@ -15,6 +19,7 @@
 		height: 35px;
 		padding: 0 1em;
 		opacity: 0.5;
+		cursor: pointer;
 
 		@media (min-width: 768px) {
 			width: 35px;

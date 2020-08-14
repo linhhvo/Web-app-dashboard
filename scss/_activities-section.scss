@@ -1,45 +1,19 @@
 .activities {
-	&_container {
-		clear: both;
-		overflow: auto;
-		border-bottom: solid 1px rgb(202, 202, 202);
-		padding: 1em 0;
-		height: 85px;
-		overflow: hidden;
-		&:last-child {
-			border-bottom: none;
-		}
-	}
-
-	&_item {
-		float: left;
-		display: flex;
-		width: 90%;
-
-		@include mq(768px) {
-			margin-top: 0.5em;
-			width: 90%;
-		}
-
-		& p {
-			margin: 0;
-
-			&:last-of-type {
-				font-size: 0.9rem;
-			}
-		}
-	}
-
-	&_info {
-		margin: auto 0;
-	}
-
 	&_see-more {
-		float: right;
-		font-size: 3rem;
+		text-align: right;
+		font-size: 2rem;
 		font-family: 'Catamaran';
 		font-weight: 200;
 		color: rgb(108, 107, 197);
 		margin: 0;
+		position: absolute;
+		top: 22px;
+		right: 10px;
+
+		@include mq(400px) {
+			margin: auto 0 auto 0.3em;
+			font-size: 3rem;
+			position: unset;
+		}
 	}
 }

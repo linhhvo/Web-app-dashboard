@@ -14,3 +14,24 @@
 	border-color: rgb(108, 107, 197);
 	outline: none;
 }
+
+.message_container {
+	position: relative;
+}
+
+.userList {
+	position: absolute;
+	top: 50px;
+	width: 100%;
+
+	&_item {
+		background-color: rgb(200, 190, 255);
+		padding: 0.5em 1em;
+		cursor: pointer;
+
+		&:hover {
+			color: rgb(71, 69, 151);
+			background-color: rgb(238, 238, 238);
+		}
+	}
+}

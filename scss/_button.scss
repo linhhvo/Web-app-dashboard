@@ -8,21 +8,18 @@
 		border: none;
 		width: 100%;
 		font-weight: bold;
-		margin-bottom: 1em;
+
+		&.message {
+			width: 100%;
+		}
 
 		&:hover {
 			background-color: rgb(122, 121, 197);
 		}
 
 		@include mq(1024px) {
-			width: 50%;
-			margin-right: 0.5em;
-			margin-bottom: 0;
+			width: 49%;
 		}
-	}
-
-	&_message {
-		width: 100%;
 	}
 
 	&_secondary {
@@ -34,10 +31,14 @@
 		border: none;
 		width: 100%;
 		font-weight: bold;
+		margin-top: 1em;
 
 		@include mq(1024px) {
-			width: 50%;
-			margin-left: 0.5em;
+			width: 49%;
+			margin-top: 0;
+		}
+		&:hover {
+			background-color: rgb(161, 161, 161);
 		}
 	}
 }
@@ -55,6 +56,7 @@
 		justify-content: space-between;
 		border: solid 2px rgba(202, 202, 202, 0.658);
 		transition: all 0.3s ease-in-out;
+		position: relative;
 	}
 
 	&_circle {
@@ -62,29 +64,35 @@
 		height: 30px;
 		background-color: white;
 		border-radius: 100px;
-		margin: auto 2px;
 		border: solid 2px rgb(202, 202, 202, 0.658);
+		position: absolute;
+		top: 3px;
+		left: 3px;
+		transition: left 0.4s ease-in-out;
 	}
 
 	&_text {
 		color: white;
-		margin: auto 10px;
+		margin: auto 8px;
 		text-transform: uppercase;
-		transition: all 0.3s ease-in-out;
+		transition: all 0.4s;
 	}
 }
+
 .on {
-	display: none;
+	color: transparent;
 }
 .active-btn {
 	background-color: rgb(122, 121, 197);
-	border: solid 2px rgb(202, 202, 202, 0.658);
 
-	& > .off {
-		display: none;
+	& .toggle_circle {
+		left: 53px;
 	}
 
 	& > .on {
-		display: initial;
+		color: white;
+	}
+	& > .off {
+		color: transparent;
 	}
 }

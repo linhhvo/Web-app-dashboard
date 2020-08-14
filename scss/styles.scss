@@ -8,31 +8,7 @@
 @import 'topBar';
 @import 'main-traffic-section';
 @import 'socials-section';
-@import 'members-section';
 @import 'activities-section';
 @import 'form';
+@import 'members-section';
 @import 'settings-section';
-
-.full-chart,
-.half-chart {
-	& img {
-		width: 90%;
-		height: auto;
-	}
-}
-
-.daily,
-.socials,
-.activities,
-.settings {
-	background-color: rgba(200, 190, 255, 0.226);
-}
-
-@media (min-width: 768px) {
-	.daily,
-	.socials,
-	.activities,
-	.settings {
-		background-color: unset;
-	}
-}

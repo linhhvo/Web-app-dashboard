@@ -1,18 +1,22 @@
 .members {
 	&_container {
 		padding: 1em 0;
-		height: 85px;
 		border-bottom: solid 1px rgb(202, 202, 202);
-		clear: both;
-		overflow: auto;
+		position: relative;
 		&:last-child {
 			border-bottom: none;
+		}
+
+		@include mq(400px) {
+			display: flex;
+			justify-content: space-between;
 		}
 	}
 
 	&_item {
 		display: flex;
-		float: left;
+		margin: auto 0;
+		width: 90%;
 	}
 	&_avatar {
 		width: 40px;
@@ -26,7 +30,7 @@
 		& p {
 			margin: 0;
 		}
-		& a {
+		&--line2 {
 			font-size: 0.9rem;
 			text-decoration: none;
 			color: rgb(108, 107, 197);
@@ -34,7 +38,11 @@
 	}
 
 	&_date {
-		float: right;
-		margin: 0.7em 0;
+		margin: 0;
+		text-align: right;
+
+		@include mq(400px) {
+			margin: auto 0;
+		}
 	}
 }
