@@ -287,11 +287,11 @@
 			<section class="settings settings-2 border-top">
 				<h3>Settings</h3>
 
-				<div class="settings_1">
+				<div>
 					<!--===Email Notifications===-->
 					<div class="settings_container">
 						<p>Send Email Notifications</p>
-						<div class="toggle">
+						<div class="toggle settings_email">
 							<div class="toggle_button active-btn">
 								<div class="toggle_text on">On</div>
 								<div class="toggle_circle"></div>
@@ -303,7 +303,7 @@
 					<!--===Profile privacy===-->
 					<div class="settings_container">
 						<p>Set Profile to Public</p>
-						<div class="toggle">
+						<div class="toggle settings_privacy">
 							<div class="toggle_button active-btn">
 								<div class="toggle_text on">On</div>
 								<div class="toggle_text off">Off</div>
@@ -314,7 +314,7 @@
 				</div>
 
 				<!--===Timezone selection===-->
-				<div class="settings_2">
+				<div id="settings_tz">
 					<div class="settings_timezone">
 						<select id="timezone" class="form_field">
 							<option disabled selected>Select a Timezone</option>
@@ -322,6 +322,7 @@
 							<option value="Pacific">Pacific</option>
 						</select>
 					</div>
+					<!-- <p class="saved">Your settings have been saved.</p> -->
 
 					<div class="settings_btn">
 						<button class="button_primary" id="save">Save</button>

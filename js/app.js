@@ -19,24 +19,19 @@ const errorMessage = document.createElement('p');
 const sendButton = document.getElementById('send');
 
 const settings = document.querySelector('.settings-2');
+const emailToggle = document.querySelector('.settings_email').firstElementChild;
+const privacyToggle = document.querySelector('.settings_privacy').firstElementChild;
+const timezoneContainer = document.getElementById('settings_tz');
+const timezoneSettings = document.getElementById('timezone');
+let timezoneOptions = timezoneSettings.children;
+const saveButton = document.getElementById('save');
+const cancelButton = document.getElementById('cancel');
 
 const trafficCanvas = document.getElementById('mainTrafficChart');
 const dailyCanvas = document.getElementById('dailyChart');
 const mobileCanvas = document.getElementById('usersChart');
 
 let time = 'Weekly';
-
-// Change styles for switch toggles
-settings.addEventListener('click', (e) => {
-	if (e.target.classList[0] == 'toggle_circle') {
-		let toggleBtn = e.target.parentNode;
-		if (toggleBtn.classList[1] == 'active-btn') {
-			toggleBtn.classList.remove('active-btn');
-		} else {
-			toggleBtn.classList.add('active-btn');
-		}
-	}
-});
 
 // Change styles for active navigation links
 nav.addEventListener('click', (e) => {
@@ -196,6 +191,85 @@ form.addEventListener('input', (e) => {
 	if (e.target.nextElementSibling.tagName == 'P') {
 		form.removeChild(e.target.nextElementSibling);
 	}
+});
+
+// Change styles for switch toggles
+settings.addEventListener('click', (e) => {
+	if (e.target.classList[0] == 'toggle_circle') {
+		resetMessage();
+		let toggleBtn = e.target.parentNode;
+		if (toggleBtn.classList[1] == 'active-btn') {
+			toggleBtn.classList.remove('active-btn');
+		} else {
+			toggleBtn.classList.add('active-btn');
+		}
+	}
+	if (e.target.tagName == 'SELECT') {
+		resetMessage();
+	}
+});
+
+// Save settings selection to local storage
+saveButton.addEventListener('click', () => {
+	if (emailToggle.classList[1] == 'active-btn') {
+		localStorage.setItem('email', 'on');
+	} else {
+		localStorage.setItem('email', 'off');
+	}
+	if (privacyToggle.classList[1] == 'active-btn') {
+		localStorage.setItem('public', 'on');
+	} else {
+		localStorage.setItem('public', 'off');
+	}
+	let selectedTimezone = timezoneSettings.value;
+	localStorage.setItem('timezone', selectedTimezone);
+
+	// Display success message
+	let savedMessage = document.createElement('p');
+	if (timezoneSettings.parentNode.nextElementSibling.tagName !== 'P') {
+		savedMessage.textContent = `Your settings have been saved.`;
+		savedMessage.classList.add('saved');
+		timezoneSettings.parentNode.after(savedMessage);
+	}
+});
+
+function resetMessage() {
+	if (timezoneSettings.parentNode.nextElementSibling.tagName == 'P') {
+		let message = document.getElementsByClassName('saved')[0];
+		timezoneContainer.removeChild(message);
+	}
+}
+
+function setTimezone(timezone) {
+	if (!localStorage.getItem('timezone')) {
+		timezoneOptions[0].selected = true;
+	}
+	for (let i = 0; i < timezoneOptions.length; i++) {
+		if (timezone === timezoneOptions[i].textContent) {
+			timezoneOptions[i].selected = true;
+		}
+	}
+}
+
+if (localStorage.getItem('email') === 'off') {
+	emailToggle.classList.remove('active-btn');
+}
+if (localStorage.getItem('public') === 'off') {
+	privacyToggle.classList.remove('active-btn');
+}
+setTimezone(localStorage.getItem('timezone'));
+
+// Reset local storage
+cancelButton.addEventListener('click', () => {
+	localStorage.clear();
+	resetMessage();
+	if (emailToggle.classList[1] !== 'active-btn') {
+		emailToggle.classList.add('active-btn');
+	}
+	if (privacyToggle.classList[1] !== 'active-btn') {
+		privacyToggle.classList.add('active-btn');
+	}
+	timezoneOptions[0].selected = true;
 });
 
 // Change styles and chart data for active main traffic navigation
