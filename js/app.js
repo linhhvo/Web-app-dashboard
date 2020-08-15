@@ -7,15 +7,24 @@ const nav = document.querySelector('nav');
 
 const alertBar = document.getElementById('alert');
 
+const trafficNav = document.querySelector('.traffic_nav');
+const trafficNavItems = document.getElementsByClassName('traffic_nav--link');
+
+const form = document.querySelector('form');
 const userSearch = document.getElementsByClassName('userField');
-let userList = document.querySelector('.userList');
+const messageField = document.getElementById('messageField');
+const userList = document.querySelector('.userList');
 const userData = ['John Smith', 'Jane Doe', 'Karen Cook', 'Sharon Gill', 'Victoria Chambers', 'Dale Byrd', 'Dawn Wood', 'Dan Oliver', 'Hieu Pham', 'Linh Vo'];
+const errorMessage = document.createElement('p');
+const sendButton = document.getElementById('send');
 
 const settings = document.querySelector('.settings-2');
 
 const trafficCanvas = document.getElementById('mainTrafficChart');
 const dailyCanvas = document.getElementById('dailyChart');
 const mobileCanvas = document.getElementById('usersChart');
+
+let time = 'Weekly';
 
 // Change styles for switch toggles
 settings.addEventListener('click', (e) => {
@@ -94,6 +103,7 @@ function searchFilter() {
 			});
 		}
 	}
+	// Close suggestion list when click anywhere outside of the list
 	document.addEventListener('click', () => {
 		resetList(userList);
 	});
@@ -108,18 +118,134 @@ function resetList(parent) {
 
 userField.addEventListener('keyup', searchFilter);
 
+// Function to capitalize first Letter of each word
+function toUpperFirst(str) {
+	return str
+		.toLowerCase()
+		.split(' ')
+		.map(function (word) {
+			return word[0].toUpperCase() + word.substr(1);
+		})
+		.join(' ');
+}
+
+// Actions when send message
+form.addEventListener('submit', (e) => {
+	e.preventDefault();
+	let userNameInput = userField.value.toLowerCase();
+	let messageInput = messageField.value;
+
+	// Display error messages if user and message input are invalid
+	const createErrorMessage = {
+		invalid: () => {
+			errorMessage.textContent = 'This user is not in the system.';
+			errorMessage.classList.add('error');
+			form.insertBefore(errorMessage, userList);
+		},
+		emptyUser: () => {
+			errorMessage.textContent = 'This field cannot be blank.';
+			errorMessage.classList.add('error');
+			form.insertBefore(errorMessage, userList);
+		},
+		emptyMessage: () => {
+			errorMessage.textContent = 'This field cannot be blank.';
+			errorMessage.classList.add('error');
+			form.insertBefore(errorMessage, sendButton);
+		},
+	};
+
+	// Check if user input is in the system
+	function checkValidUser() {
+		if (userData.includes(toUpperFirst(userNameInput))) {
+			return true;
+		} else {
+			createErrorMessage.invalid();
+			return false;
+		}
+	}
+
+	// Display success message and reset form input
+	function displaySuccessMessage() {
+		const successMessage = `
+			<div class="success">
+				<p>Your message has been sent!</p>
+				<button type="button">Go Back</button>
+			</div>`;
+		form.insertAdjacentHTML('beforeend', successMessage);
+		userField.value = null;
+		messageField.value = null;
+		const messageContainer = document.querySelector('.success');
+		messageContainer.addEventListener('click', (e) => {
+			if (e.target.tagName == 'BUTTON') {
+				messageContainer.parentNode.removeChild(messageContainer);
+			}
+		});
+	}
+
+	if (userNameInput && checkValidUser() && messageInput) {
+		displaySuccessMessage();
+	} else if (!userNameInput) {
+		createErrorMessage.emptyUser();
+	} else if (!messageInput) {
+		createErrorMessage.emptyMessage();
+	}
+});
+
+// Clear error message when user reenter input
+form.addEventListener('input', (e) => {
+	if (e.target.nextElementSibling.tagName == 'P') {
+		form.removeChild(e.target.nextElementSibling);
+	}
+});
+
+// Change styles and chart data for active main traffic navigation
+trafficNav.addEventListener('click', (e) => {
+	if (e.target.tagName == 'LI') {
+		if (e.target.classList[1] !== 'active') {
+			e.target.classList.add('active');
+			time = e.target.textContent;
+			trafficChart.data.datasets[0].data = getTrafficData();
+			trafficChart.update();
+			for (let i = 0; i < trafficNavItems.length; i++) {
+				if (trafficNavItems[i] !== e.target) {
+					trafficNavItems[i].classList.remove('active');
+				}
+			}
+		}
+	}
+});
+
+// Default chart font settings
+Chart.defaults.global.defaultFontFamily = 'Catamaran';
+Chart.defaults.global.defaultFontSize = 15;
+Chart.defaults.global.defaultFontStyle = 'bold';
+
+// Change dataset based on selected traffic navigation
+function getTrafficData() {
+	if (time === 'Hourly') {
+		return [25, 95, 70, 79, 43, 47, 10, 95, 57, 96, 25];
+	} else if (time === 'Daily') {
+		return [142, 256, 140, 461, 376, 207, 500, 362, 313, 161, 159];
+	} else if (time === 'Monthly') {
+		return [6300, 4500, 5900, 3000, 7500, 5000, 6500, 9300, 3500, 6000, 8500];
+	} else {
+		return [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500];
+	}
+}
+
 // Add main traffic chart
 let trafficData = {
 	labels: ['16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31'],
 	datasets: [
 		{
-			data: [750, 1250, 1000, 2000, 1500, 1750, 1250, 1850, 2250, 1500, 2500],
+			data: getTrafficData(),
 			backgroundColor: 'rgba(116,119,191,.3)',
 			borderWidth: 2,
 			pointBorderColor: 'rgba(116,119,191)',
-			pointHoverBackgroundColor: 'rgba(116,119,191)',
+			pointBackgroundColor: 'rgba(116,119,191)',
 			pointRadius: 4,
 			pointHoverRadius: 5,
+			borderColor: 'rgba(116,119,191,.5)',
 		},
 	],
 };
@@ -141,9 +267,6 @@ let trafficOptions = {
 	},
 	legend: {
 		display: false,
-	},
-	labels: {
-		defaultFontSize: 20,
 	},
 };
 
@@ -168,11 +291,20 @@ const dailyData = {
 
 const dailyOptions = {
 	responsive: true,
+	aspectRatio: 1.7,
 	scales: {
 		yAxes: [
 			{
 				ticks: {
 					beginAtZero: true,
+					fontSize: 20,
+				},
+			},
+		],
+		xAxes: [
+			{
+				ticks: {
+					fontSize: 20,
 				},
 			},
 		],
@@ -203,11 +335,14 @@ const mobileData = {
 
 const mobileOptions = {
 	responsive: true,
+	aspectRatio: 1.7,
 	legend: {
 		position: 'right',
 		labels: {
 			boxWidth: 20,
 			fontStyle: 'bold',
+			fontSize: 20,
+			padding: 20,
 		},
 	},
 };

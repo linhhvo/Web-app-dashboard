@@ -11,6 +11,7 @@
 		&--link {
 			display: inline-block;
 			color: gray;
+			cursor: pointer;
 
 			@include mq(400px) {
 				padding: 0.1em 0.25em;
@@ -20,10 +21,6 @@
 				color: rgb(153, 153, 153);
 				font-weight: bold;
 			}
-		}
-
-		& li:last-of-type {
-			padding-right: 0;
 		}
 	}
 }

@@ -8,6 +8,8 @@
 		border: none;
 		width: 100%;
 		font-weight: bold;
+		margin-top: 1em;
+		cursor: pointer;
 
 		&.message {
 			width: 100%;
@@ -32,10 +34,10 @@
 		width: 100%;
 		font-weight: bold;
 		margin-top: 1em;
+		cursor: pointer;
 
 		@include mq(1024px) {
 			width: 49%;
-			margin-top: 0;
 		}
 		&:hover {
 			background-color: rgb(161, 161, 161);
@@ -69,6 +71,7 @@
 		top: 3px;
 		left: 3px;
 		transition: left 0.4s ease-in-out;
+		cursor: pointer;
 	}
 
 	&_text {

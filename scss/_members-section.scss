@@ -11,6 +11,10 @@
 			display: flex;
 			justify-content: space-between;
 		}
+
+		@include mq(1024px) {
+			height: 88px;
+		}
 	}
 
 	&_item {
