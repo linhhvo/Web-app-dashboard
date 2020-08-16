@@ -1,7 +1,7 @@
 const header = document.querySelector('header');
 const newNotiIndicator = document.querySelector('.new-noti');
 const notifications = document.getElementById('notifications');
-const notiContainer = document.getElementsByClassName('notifications_container');
+const notiContainer = document.getElementsByClassName('notifications_items');
 
 const nav = document.querySelector('nav');
 
