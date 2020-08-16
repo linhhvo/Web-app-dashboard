@@ -1,48 +1,32 @@
 .settings {
-	display: flex;
-	justify-content: space-between;
+	@extend %flex;
 	flex-direction: column;
-
 	&_container {
 		display: grid;
 		grid-template-columns: minmax(0, 1fr) minmax(100px, 100px);
-		margin: auto 0;
+		margin: $vertical-center;
 	}
-
-	@include mq(1024px) {
+	@include mq($break-lg) {
 		&_btn {
 			display: flex;
 			justify-content: space-between;
 		}
 	}
-
-	& select {
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		appearance: none;
-	}
-
 	&_timezone {
 		position: relative;
 		margin-top: 2em;
-
 		&::after {
+			@extend %arrow;
 			content: '>';
-			position: absolute;
-			color: rgb(108, 107, 197);
-			font-size: 3rem;
-			font-family: 'Catamaran';
-			font-weight: 200;
 			transform: rotate(90deg);
 			pointer-events: none;
-			// bottom: 0px;
 			right: 20px;
 		}
 	}
+}
 
-	&-1 {
-		position: relative;
-	}
+.message {
+	position: relative;
 }
 
 .success {
@@ -54,25 +38,18 @@
 	left: 0;
 	display: flex;
 	flex-direction: column;
-
-	@include mq(768px) {
-		// width: 90%;
-		// left: unset;
-	}
-
 	& p {
-		color: green;
+		color: $green;
 		font-size: 1.1rem;
 		margin: auto;
 		margin-bottom: 1em;
 	}
-
 	& button {
 		margin: auto;
 		margin-top: 0;
 		border: none;
-		background-color: rgb(83, 82, 136);
-		border-radius: 20px;
+		background-color: $color-btn-primary;
+		border-radius: $round-corner;
 		color: white;
 		padding: 0.5em 2em;
 	}
@@ -80,5 +57,5 @@
 
 .saved {
 	margin-bottom: 0;
-	color: green;
+	color: $green;
 }

@@ -1,52 +1,44 @@
 .members {
 	&_container {
 		padding: 1em 0;
-		border-bottom: solid 1px rgb(202, 202, 202);
+		border-bottom: $border-thin;
 		position: relative;
 		&:last-child {
 			border-bottom: none;
 		}
-
-		@include mq(400px) {
+		@include mq($break-sm) {
 			display: flex;
 			justify-content: space-between;
 		}
-
-		@include mq(1024px) {
+		@include mq($break-lg) {
 			height: 88px;
 		}
 	}
-
 	&_item {
 		display: flex;
-		margin: auto 0;
+		margin: $vertical-center;
 		width: 90%;
 	}
 	&_avatar {
-		width: 40px;
-		height: 40px;
-		border-radius: 100%;
+		@extend %avatar;
 		margin: auto 1em auto 0;
 	}
-
 	&_info {
-		margin: auto 0;
+		margin: $vertical-center;
 		& p {
 			margin: 0;
 		}
 		&--line2 {
 			font-size: 0.9rem;
 			text-decoration: none;
-			color: rgb(108, 107, 197);
+			color: $color-secondary;
 		}
 	}
-
 	&_date {
 		margin: 0;
 		text-align: right;
-
-		@include mq(400px) {
-			margin: auto 0;
+		@include mq($break-sm) {
+			margin: $vertical-center;
 		}
 	}
 }

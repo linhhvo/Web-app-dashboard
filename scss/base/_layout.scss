@@ -1,0 +1,72 @@
+.grid-container {
+	display: grid;
+	grid-template-columns: 100vw;
+	grid-template-rows: auto;
+	grid-template-areas: 'header' 'nav' 'main';
+	@include mq($break-med) {
+		grid-template-columns: minmax($nav-width-sm, $nav-width-sm) minmax(0, 1fr);
+		grid-template-areas: 'header header' 'nav main';
+	}
+	@include mq($break-lg) {
+		grid-template-columns: minmax($nav-width-lg, $nav-width-lg) minmax(0, 1fr);
+	}
+}
+
+header {
+	grid-area: header;
+}
+
+.nav {
+	grid-area: nav;
+	@include mq($break-med) {
+		width: $nav-width-sm;
+	}
+	@include mq($break-lg) {
+		width: $nav-width-lg;
+	}
+}
+
+main {
+	grid-area: main;
+	display: grid;
+	@include mq($break-med) {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+}
+
+.members {
+	@include mq($break-med) {
+		@include grid-layout(full);
+	}
+	@include mq($break-lg) {
+		@include grid-layout(first-half);
+	}
+}
+
+.activities {
+	@include mq($break-med) {
+		@include grid-layout(full);
+	}
+	@include mq($break-lg) {
+		@include grid-layout(second-half);
+	}
+}
+
+@include mq($break-med) {
+	.traffic,
+	.socials,
+	.top-bar,
+	.alert {
+		@include grid-layout(full);
+	}
+
+	.daily,
+	.message {
+		@include grid-layout(first-half);
+	}
+
+	.users,
+	.settings {
+		@include grid-layout(second-half);
+	}
+}

@@ -2,16 +2,14 @@
 	display: flex;
 	justify-content: center;
 	text-align: center;
-	background-color: rgb(83, 82, 136);
+	background-color: $color-primary;
 	padding: 1em 0 0.75em;
-	// z-index: 10;
-
-	@media (min-width: 768px) {
+	@include mq($break-med) {
 		flex-direction: column;
 		justify-content: start;
 		position: fixed;
 		height: 100vh;
-		margin-top: 70px;
+		margin-top: $header-height;
 	}
 
 	& img {
@@ -20,14 +18,12 @@
 		padding: 0 1em;
 		opacity: 0.5;
 		cursor: pointer;
-
-		@media (min-width: 768px) {
+		@include mq($break-med) {
 			width: 35px;
 			height: 65px;
 			padding: 1em 0;
 		}
-
-		@media (min-width: 1024px) {
+		@include mq($break-lg) {
 			width: 40px;
 			height: 70px;
 		}
@@ -37,16 +33,15 @@
 .selected {
 	text-decoration: none;
 	position: relative;
-
-	@include mq(768px) {
+	@include mq($break-med) {
 		&::before {
 			content: 'b';
 			padding: 25px 0;
 			background-color: rgba(93, 214, 93, 0.856);
 			color: transparent;
 			position: absolute;
-			left: -4px;
-			border-radius: 40px;
+			left: -5px;
+			border-radius: $round-corner;
 		}
 	}
 	& img {

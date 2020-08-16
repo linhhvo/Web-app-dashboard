@@ -13,9 +13,9 @@
 			<h1 class="app-name">TrackYour<span>Usage</span></h1>
 
 			<div class="account">
-				<svg class="account_bell-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<svg class="bell-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
 					<path
-						class="account_bell-icon--path"
+						class="bell-icon--path"
 						d="M24 18v-8c0-5.5-4.5-10-10-10S4 4.5 4 10v8l-4 8h9.1c.5 2.3 2.5 4 4.9 4s4.4-1.7 4.9-4H28l-4-8zM14 28c-1.3 0-2.4-.8-2.8-2h5.6c-.4 1.2-1.5 2-2.8 2zM3 24l3-6v-8c0-4.4 3.6-8 8-8s8 3.6 8 8v8l3 6H3z"
 						fill="#fff"
 					/>
@@ -23,15 +23,15 @@
 
 				<div class="new-noti"></div>
 				<div class="notifications" id="notifications">
-					<div class="notifications_container">
+					<div class="notifications_items">
 						<p>You have a new connection request.</p>
 						<button class="alert_btn">x</button>
 					</div>
-					<div class="notifications_container">
+					<div class="notifications_items">
 						<p>Victoria sent you a message.</p>
 						<button class="alert_btn">x</button>
 					</div>
-					<div class="notifications_container">
+					<div class="notifications_items">
 						<p>Dan replied you on an article.</p>
 						<button class="alert_btn">x</button>
 					</div>
@@ -45,16 +45,16 @@
 		</header>
 
 		<nav class="nav">
-			<a class="nav_dashboard selected" href="#dashboard">
+			<a class="selected" href="#dashboard">
 				<img src="icons/icon-dashboard.svg" alt="Dashboard icon" />
 			</a>
-			<a class="nav_members" href="#members">
+			<a href="#members">
 				<img src="icons/icon-members.svg" alt="Members icon" />
 			</a>
-			<a class="nav_visits" href="#visits">
+			<a href="#visits">
 				<img src="icons/icon-visits.svg" alt="Visits icon" />
 			</a>
-			<a class="nav_settings" href="#settings">
+			<a href="#settings">
 				<img src="icons/icon-settings.svg" alt="Settings icon" />
 			</a>
 		</nav>
@@ -96,7 +96,7 @@
 			</section>
 
 			<!-----Daily traffic bar chart----->
-			<section class="daily border">
+			<section class="daily">
 				<h3>Daily traffic</h3>
 				<div class="half-chart">
 					<canvas id="dailyChart"></canvas>
@@ -104,7 +104,7 @@
 			</section>
 
 			<!-----Users doughnut chart----->
-			<section class="users border-top">
+			<section class="users">
 				<h3>Mobile Users</h3>
 				<div class="half-chart">
 					<canvas id="usersChart"></canvas>
@@ -112,7 +112,7 @@
 			</section>
 
 			<!-----Social Stats----->
-			<section class="socials border-top" id="visits">
+			<section class="socials" id="visits">
 				<h3>Social stats</h3>
 
 				<!--===Twitter===-->
@@ -167,7 +167,7 @@
 			</section>
 
 			<!-----New Members----->
-			<section class="members border" id="members">
+			<section class="members" id="members">
 				<h3>New members</h3>
 
 				<!--===Member 1===-->
@@ -220,7 +220,7 @@
 			</section>
 
 			<!-----Recent Activities----->
-			<section class="activities border-top">
+			<section class="activities">
 				<h3>Recent activity</h3>
 
 				<!--===Activity 1===-->
@@ -232,7 +232,7 @@
 							<p class="members_info--line2">4 hours ago</p>
 						</div>
 					</div>
-					<p class="activities_see-more">></p>
+					<button class="button_arrow">></button>
 				</div>
 
 				<!--===Activity 2===-->
@@ -244,7 +244,7 @@
 							<p class="members_info--line2">5 hours ago</p>
 						</div>
 					</div>
-					<p class="activities_see-more">></p>
+					<button class="button_arrow">></button>
 				</div>
 
 				<!--===Activity 3===-->
@@ -256,7 +256,7 @@
 							<p class="members_info--line2">5 hours ago</p>
 						</div>
 					</div>
-					<p class="activities_see-more">></p>
+					<button class="button_arrow">></button>
 				</div>
 
 				<!--===Activity 4===-->
@@ -268,23 +268,23 @@
 							<p class="members_info--line2">1 day ago</p>
 						</div>
 					</div>
-					<p class="activities_see-more">></p>
+					<button class="button_arrow">></button>
 				</div>
 			</section>
 
 			<!------Send Message------>
-			<section class="settings settings-1 border" id="settings">
+			<section class="message" id="settings">
 				<h3>Message user</h3>
-				<form autocomplete="off" class="message_container">
-					<input type="text" placeholder="Search for User" id="userField" class="form_field user-search" />
+				<form autocomplete="off" class="form_container">
+					<input type="text" placeholder="Search for User" id="userField" class="input_user" />
 					<div class="userList"></div>
-					<textarea rows="10" id="messageField" placeholder="Message for User" class="form_field"></textarea>
-					<button type="submit" class="button_primary message" id="send">Send</button>
+					<textarea rows="10" id="messageField" placeholder="Message for User" class="input_message"></textarea>
+					<button type="submit" class="button_message" id="send">Send</button>
 				</form>
 			</section>
 
 			<!-----Settings----->
-			<section class="settings settings-2 border-top">
+			<section class="settings">
 				<h3>Settings</h3>
 
 				<div>
@@ -316,17 +316,16 @@
 				<!--===Timezone selection===-->
 				<div id="settings_tz">
 					<div class="settings_timezone">
-						<select id="timezone" class="form_field">
+						<select id="timezone" class="input_timezone">
 							<option disabled selected>Select a Timezone</option>
 							<option value="Eastern">Eastern</option>
 							<option value="Pacific">Pacific</option>
 						</select>
 					</div>
-					<!-- <p class="saved">Your settings have been saved.</p> -->
 
 					<div class="settings_btn">
-						<button class="button_primary" id="save">Save</button>
-						<button class="button_secondary" id="cancel">Cancel</button>
+						<button class="button_save" id="save">Save</button>
+						<button class="button_cancel" id="cancel">Cancel</button>
 					</div>
 				</div>
 			</section>

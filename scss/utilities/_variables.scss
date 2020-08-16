@@ -1,0 +1,45 @@
+// Colors
+
+$gray: #4d4d4d;
+$gray-medium: #8f8f8f;
+$gray-light: #cacaca;
+$gray-xlight: rgba(202, 202, 202, 0.658);
+$gray-xxlight: rgba(202, 202, 202, 0.137);
+$melrose-light: #c8beff;
+$melrose-transparent: rgba(200, 190, 255, 0.226);
+$ship-cove: #7477bf;
+$east-bay: #535288;
+$green: #01ca01;
+
+$color-primary: $east-bay;
+$color-secondary: $ship-cove;
+$color-text: $gray;
+$color-background: $melrose-transparent;
+$color-border: $gray-light;
+$color-btn-primary: $color-primary;
+$color-btn-secondary: $gray-medium;
+
+// Font stack
+$stack-default: sans-serif;
+$stack-main: 'Nunito', $stack-default;
+$stack-number: 'Dosis', $stack-default;
+$stack-special: 'Catamaran', $stack-default;
+
+// Media query breaks
+$break-sm: 400px;
+$break-med: 768px;
+$break-lg: 1024px;
+
+// Border
+$border-thin: solid 1px $color-border;
+$border-thick: solid 2px $gray-xlight;
+$smooth-edge: 5px;
+$round-corner: 1000px;
+
+// Size
+$nav-width-sm: 70px;
+$nav-width-lg: 100px;
+$header-height: 70px;
+
+// Margin
+$vertical-center: auto 0;

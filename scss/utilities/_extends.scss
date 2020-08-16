@@ -1,0 +1,42 @@
+%toggle {
+	border-radius: $round-corner;
+	border: $border-thick;
+}
+
+%flex {
+	display: flex;
+	justify-content: space-between;
+}
+
+%form-input {
+	width: 100%;
+	padding: 1em;
+	border-radius: $smooth-edge;
+	border: $border-thin;
+	background-color: $gray-xxlight;
+	&::placeholder {
+		color: $gray-medium;
+	}
+	&:focus {
+		border-color: $color-primary;
+	}
+}
+
+%arrow {
+	position: absolute;
+	background-color: transparent;
+	border: none;
+	color: $color-secondary;
+	font-family: $stack-special;
+	font-weight: 200;
+	font-size: 3rem;
+	margin: 0;
+}
+
+%avatar {
+	width: 40px;
+	height: 40px;
+	border: solid 1px $color-primary;
+	border-radius: $round-corner;
+	background-color: white;
+}

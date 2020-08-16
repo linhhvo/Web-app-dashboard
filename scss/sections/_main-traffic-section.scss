@@ -1,37 +1,32 @@
 .traffic {
 	&_header {
-		display: flex;
-		justify-content: space-between;
+		@extend %flex;
 	}
-
 	&_nav {
-		margin: auto 0;
+		margin: $vertical-center;
 		padding: 0;
-
 		&--link {
 			display: inline-block;
-			color: gray;
 			cursor: pointer;
-
-			@include mq(400px) {
+			@include mq($break-sm) {
 				padding: 0.1em 0.25em;
 			}
-			@include mq(768px) {
+			@include mq($break-med) {
 				padding: 0.5em 1em;
-				color: rgb(153, 153, 153);
+				color: $gray-medium;
 				font-weight: bold;
 			}
 		}
 	}
 }
+
 .active {
-	border-bottom: solid 2px green;
+	border-bottom: solid 2px $green;
 	color: black;
 	font-weight: bold;
-
 	@include mq(768px) {
-		background-color: rgba(0, 172, 0, 0.541);
-		border-radius: 30px;
+		background-color: $green;
+		border-radius: $round-corner;
 		color: white;
 		border: none;
 	}

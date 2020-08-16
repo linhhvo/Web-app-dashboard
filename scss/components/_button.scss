@@ -1,0 +1,77 @@
+.button {
+	&_message,
+	&_save {
+		@include button-style($color-btn-primary);
+	}
+	&_cancel {
+		@include button-style($color-btn-secondary);
+	}
+	&_arrow {
+		@extend %arrow;
+		top: 15px;
+		right: 10px;
+		width: 100px;
+		text-align: right;
+		@include mq($break-sm) {
+			padding-right: 1.25rem;
+			right: -0.5rem;
+		}
+		@include mq($break-lg) {
+			padding-right: 3rem;
+			right: -2.25rem;
+		}
+		&:hover {
+			animation: arrow 1s linear infinite alternate;
+		}
+	}
+}
+
+#send {
+	width: 100%;
+}
+
+.toggle {
+	&_button {
+		@extend %toggle;
+		@extend %flex;
+		background-color: $color-btn-secondary;
+		width: 90px;
+		height: 40px;
+		transition: all 0.3s ease-in-out;
+		position: relative;
+	}
+	&_circle {
+		@extend %toggle;
+		width: 30px;
+		height: 30px;
+		background-color: white;
+		position: absolute;
+		top: 3px;
+		left: 3px;
+		transition: left 0.4s ease-in-out;
+		cursor: pointer;
+	}
+	&_text {
+		color: white;
+		margin: auto 8px;
+		text-transform: uppercase;
+		transition: all 0.4s;
+	}
+}
+
+.on {
+	color: transparent;
+}
+
+.active-btn {
+	background-color: $color-secondary;
+	& .toggle_circle {
+		left: 53px;
+	}
+	& > .on {
+		color: white;
+	}
+	& > .off {
+		color: transparent;
+	}
+}

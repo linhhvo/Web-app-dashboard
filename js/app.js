@@ -18,7 +18,7 @@ const userData = ['John Smith', 'Jane Doe', 'Karen Cook', 'Sharon Gill', 'Victor
 const errorMessage = document.createElement('p');
 const sendButton = document.getElementById('send');
 
-const settings = document.querySelector('.settings-2');
+const settings = document.querySelector('.settings');
 const emailToggle = document.querySelector('.settings_email').firstElementChild;
 const privacyToggle = document.querySelector('.settings_privacy').firstElementChild;
 const timezoneContainer = document.getElementById('settings_tz');
@@ -38,10 +38,10 @@ nav.addEventListener('click', (e) => {
 	if (e.target.tagName == 'IMG') {
 		let navItem = e.target.parentNode;
 		let navIcons = navItem.parentNode.children;
-		if (navItem.classList[1] !== 'selected') {
+		if (navItem.className !== 'selected') {
 			navItem.classList.add('selected');
 			for (let i = 0; i < navIcons.length; i++) {
-				if (navIcons[i].classList[0] !== navItem.classList[0]) {
+				if (navIcons[i] !== navItem) {
 					navIcons[i].classList.remove('selected');
 				}
 			}

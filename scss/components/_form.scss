@@ -1,0 +1,41 @@
+.input {
+	&_user {
+		@extend %form-input;
+		position: relative;
+	}
+	&_message {
+		@extend %form-input;
+		margin-top: 1.5em;
+	}
+	&_timezone {
+		@extend %form-input;
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+	}
+}
+
+.form_container {
+	position: relative;
+}
+
+.userList {
+	position: absolute;
+	top: 50px;
+	width: 100%;
+	&_item {
+		background-color: $melrose-light;
+		padding: 0.5em 1em;
+		cursor: pointer;
+		&:hover {
+			color: $color-primary;
+			background-color: rgb(238, 238, 238);
+		}
+	}
+}
+
+.error {
+	color: red;
+	margin: 0;
+	padding-top: 0.25em;
+}
